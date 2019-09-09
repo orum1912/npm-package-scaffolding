@@ -1,15 +1,11 @@
-@isTestable(true)
 export default class Test {
-  @enumerable(false)
   static props = 'static props';
-  @enumerable(false)
   static create = (name) => {
     return new Test(name);
   };
   constructor(name) {
     this.name = name;
   }
-  @enumerable(false)
   showName() {
     console.log('My name is ' + this.name);
   }
@@ -34,17 +30,4 @@ export default class Test {
     console.log('done work2');
     yield;
   }
-}
-
-function isTestable(value) {
-  return function decorator(target) {
-    target.isTestable = value;
-  };
-}
-
-function enumerable(value) {
-  return function (target, key, descriptor) {
-    descriptor.enumerable = value;
-    return descriptor;
-  };
 }

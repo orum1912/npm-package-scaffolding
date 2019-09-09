@@ -1,9 +1,10 @@
 // const Test = require('./test-class');
 import Test from './test-class';
+import data from './data';
 
 const t = Test.create('t1');
 
-t.showName();
+t.showName(data.name);
 
 t.work1();
 

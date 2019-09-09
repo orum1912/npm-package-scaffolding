@@ -3,14 +3,25 @@
     [
       "@babel/preset-env",
       {
-        "targets": "> 5%",
+        "targets": {
+          "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
+        },
+        "modules": "commonjs",
         "useBuiltIns": "usage",
-        "corejs": 3
+        "debug": true
       }
     ]
   ],
   "plugins": [
-    "@babel/plugin-proposal-async-generator-functions",
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "corejs": {
+          "version": 3,
+          "proposals": true
+        }
+      }
+    ],
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
     ["@babel/plugin-proposal-class-properties", { "loose" : true }]
   ]
